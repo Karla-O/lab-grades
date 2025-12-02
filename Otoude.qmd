@@ -191,3 +191,22 @@ grades |>
 ```
 
 ### Question 14
+```{r}
+all_info |>
+  select(id, grade, sex) |>
+  group_by(id, sex)|>
+  summarise(nb_of_grades = n(), sex) |>
+  distinct(.keep_all = TRUE) |>
+  ggplot(aes(x = nb_of_grades, fill = sex)) +
+  geom_histogram(position = "dodge", bins = 20) +
+  labs(
+    title = "Distribution of the number of grades depending on sex",
+    x = "nb of grades the students have",
+    y = " "
+    
+  )
+```
+
+
+### Question 15
+
