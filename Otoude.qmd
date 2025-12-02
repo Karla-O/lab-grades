@@ -15,8 +15,11 @@ library(dplyr)
 library(ggplot2)
 library(vroom)
 library(readr)
+library(lubridate)
 ```
 
+# Link to the github repository
+https://github.com/Karla-O/lab-grades.git
 
 # 1. Introduction 
 
@@ -93,6 +96,19 @@ students |>
   labs(
     title = "Gender representation in each group",
     x = "Group",
+    y = "Number of students"
+  )
+```
+
+### Question 7
+```{r}
+students |>
+  mutate(age = round(time_length(today()-birth_date, unit="year"))) |>
+  ggplot(aes(x = age)) +
+  geom_histogram(binwidth = 1, fill = 'blue', color = "black") +
+  labs(
+    title = "Distribution of age among students",
+    x = "Age",
     y = "Number of students"
   )
 ```
