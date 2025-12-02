@@ -18,7 +18,7 @@ library(readr)
 ```
 
 
-# Introduction 
+# 1. Introduction 
 
 ## 1.1 Study organisation
 
@@ -67,5 +67,20 @@ grades <- vroom(here("grades.csv"),
                   id = col_integer(),
                   course_id = col_integer()
                 ))
+```
+
+
+# 2. Student population analysis
+
+### Question 5
+```{r}
+students |>
+  ggplot(aes(x = group)) +
+  geom_bar() + 
+  labs(
+    title = "Number of students per group",
+    x = "Group",
+    y = "Number of students"
+  )
 ```
 
