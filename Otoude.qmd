@@ -3,3 +3,28 @@ title: "Second graded lab"
 author: "Karla Otoude"
 format: html
 ---
+```{r}
+library(here)
+
+here::i_am("lab-grades.Rproj")
+```
+
+```{r}
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(vroom)
+```
+
+
+# Introduction 
+
+## Question 1
+```{r}
+courses <- vroom(here("courses.csv"),
+                col_types = cols(
+    nb_grades = col_integer())) |> 
+  rename(nb_exams = nb_grades)
+```
+
+
