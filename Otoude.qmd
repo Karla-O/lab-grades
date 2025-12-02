@@ -126,3 +126,14 @@ students |>
   knitr::kable()
 ```
 
+### Question 9
+```{r}
+students |>
+  mutate(
+    "age" = round(as.numeric((today() - birth_date) / dyears(1)))
+  ) |>
+  filter(age == max(age), .by = group) |>
+  select(id, sex, age, group) |>
+  arrange(desc(age)) |>
+  knitr::kable()
+```
