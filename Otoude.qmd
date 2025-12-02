@@ -209,4 +209,14 @@ all_info |>
 
 
 ### Question 15
+```{r}
+all_info |>
+  filter(course == "Music and Dance") |>
+  group_by(id, group) |>
+  summarise("Music grade" = n(), .groups = "drop") |>
+  slice_head(n = 5) |>
+  knitr::kable()
+```
+
+
 
