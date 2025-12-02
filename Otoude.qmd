@@ -238,3 +238,17 @@ grades_music_dance |>
   )
 ```
 
+
+
+### Question 17
+```{r}
+grades_music_dance |>
+  ggplot(aes(x = as.factor(group), y = `Music grade`)) +
+  geom_jitter(width = 0.2, alpha = 0.7, color = "pink") +
+  labs(
+    title = "Distribution of the number of grades per group",
+    x = "group",
+    y = "Number of grades in music and dance"
+  )
+```
+
