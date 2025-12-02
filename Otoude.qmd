@@ -219,4 +219,22 @@ all_info |>
 ```
 
 
+### Question 16
+```{r}
+grades_music_dance <- all_info |>
+  filter(course == "Music and Dance") |>
+  group_by(id, group) |>
+  summarise(`Music grade` = n(), .groups = "drop")
+
+grades_music_dance |>
+  group_by(`Music grade`) |>
+  summarise(effectif = n()) |>
+  ggplot(aes(x = `Music grade`, y = effectif)) +
+  geom_col() +
+  labs(
+    title = "Distribution for each grade in Music and Dance",
+    x = "Number of grades in Music and Dance",
+    y = "Number of students"
+  )
+```
 
