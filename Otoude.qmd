@@ -84,3 +84,16 @@ students |>
   )
 ```
 
+
+### Question 6
+```{r}
+students |>
+  ggplot(aes(x = group, fill = sex)) +
+  geom_bar() + 
+  labs(
+    title = "Gender representation in each group",
+    x = "Group",
+    y = "Number of students"
+  )
+```
+
