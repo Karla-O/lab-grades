@@ -14,6 +14,7 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 library(vroom)
+library(readr)
 ```
 
 
@@ -55,5 +56,16 @@ students <- vroom(here("students.csv"),
 The `birth_date` column of the students data frame is of class `Date`.
 
 
+## 1.3 Grades
 
+### Question 4
+```{r}
+grades <- vroom(here("grades.csv"),
+                     delim = ";", 
+                     na = "unknown",
+                col_types = cols(
+                  id = col_integer(),
+                  course_id = col_integer()
+                ))
+```
 
