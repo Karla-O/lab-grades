@@ -19,7 +19,9 @@ library(vroom)
 
 # Introduction 
 
-## Question 1
+## 1.1 Study organisation
+
+### Question 1
 ```{r}
 courses <- vroom(here("courses.csv"),
                 col_types = cols(
@@ -29,7 +31,7 @@ courses <- vroom(here("courses.csv"),
 
 
 
-## Question 2 
+### Question 2 
 ```{r}
 courses |>
   summarise("course name" = course, 
@@ -40,6 +42,18 @@ courses |>
   knitr::kable()
 ```
 
+## 1.2 Students
+
+### Question 3
+```{r}
+students <- vroom(here("students.csv"),
+                col_types = cols(
+    group = col_factor(), 
+    id = col_integer(), 
+    sex = col_factor()))
+```
+The `birth_date` column of the students data frame is of class `Date`.
 
 
-## Question 
+
+
