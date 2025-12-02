@@ -29,7 +29,8 @@ https://github.com/Karla-O/lab-grades.git
 ```{r}
 courses <- vroom(here("courses.csv"),
                 col_types = cols(
-    nb_grades = col_integer())) |> 
+    nb_grades = col_integer(),
+    module = col_factor())) |> 
   rename(nb_exams = nb_grades)
 ```
 
@@ -166,3 +167,18 @@ all_info |>
   geom_col()
 ```
 
+### Question 12
+```{r}
+all_info |>
+  filter(!is.na(grade)) |>
+  ggplot(aes(x = grade, fill = module)) +
+  geom_histogram(position = "dodge", bins = 20) +
+  labs(
+    title = "Students results depending on their module",
+    x = "grade obtained",
+    y = "nb of grades"
+  )
+```
+
+# Attendance analysis
+### Question 13
