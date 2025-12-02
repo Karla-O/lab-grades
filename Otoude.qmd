@@ -152,3 +152,17 @@ The data set contains `r nb_grades`  grades
 
 
 ### Question 11
+```{r}
+grades_per_course <- 
+  left_join(grades, courses, by = "course_id")
+all_info <- 
+  left_join(grades_per_course, students, by = "id")
+
+all_info |>
+  filter(course == "Martial Arts and Self-Defense") |>
+  group_by(group) |>
+  summarise(mean_MASD = mean(grade, na.rm = TRUE)) |>
+  ggplot(aes(x = group, y = mean_MASD)) +
+  geom_col()
+```
+
