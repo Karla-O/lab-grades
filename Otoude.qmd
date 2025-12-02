@@ -4,12 +4,14 @@ author: "Karla Otoude"
 format: html
 ---
 ```{r}
+#| message: false
 library(here)
 
 here::i_am("lab-grades.Rproj")
 ```
 
 ```{r}
+#| message: false
 library(tidyr)
 library(dplyr)
 library(ggplot2)
@@ -27,6 +29,7 @@ https://github.com/Karla-O/lab-grades.git
 
 ### Question 1
 ```{r}
+#| message: false
 courses <- vroom(here("courses.csv"),
                 col_types = cols(
     nb_grades = col_integer(),
@@ -51,6 +54,7 @@ courses |>
 
 ### Question 3
 ```{r}
+#| message: false
 students <- vroom(here("students.csv"),
                 col_types = cols(
     group = col_factor(), 
@@ -64,6 +68,7 @@ The `birth_date` column of the students data frame is of class `Date`.
 
 ### Question 4
 ```{r}
+#| message: false
 grades <- vroom(here("grades.csv"),
                      delim = ";", 
                      na = "unknown",
