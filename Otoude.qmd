@@ -182,3 +182,12 @@ all_info |>
 
 # Attendance analysis
 ### Question 13
+```{r}
+grades |>
+  group_by(id) |>
+  summarise(nb_of_grades = n()) |>
+  slice_head(n=5) |>
+  knitr::kable()
+```
+
+### Question 14
