@@ -113,3 +113,16 @@ students |>
   )
 ```
 
+### Question 8
+```{r}
+students |>
+  mutate(
+    age = round(as.numeric((today() - birth_date) / dyears(1)))
+  ) |>
+  summarise(
+    med_st = median(age, na.rm = TRUE),
+   .by = group) |>
+  arrange(group) |>
+  knitr::kable()
+```
+
